@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Project5</string>
+    <string name="deluxe_pizza">Deluxe</string>
+    <string name="hawaiian_pizza">Hawaiin</string>
+    <string name="pepperoni_pizza">Pepperoni</string>
+    <string name="order_pizza">Place Order</string>
+    <string name="phone_number">enter your phone number</string>
+    <string name="pick_pizza">Pick Your Pizza</string>
+    <string name="store_orders">Store Orders</string>
+    <string name="current_order">Current Order</string>
+    <string name="PEPPERONI">Pepperoni</string>
+    <string name="MUSHROOMS">Mushrooms</string>
+    <string name="ONIONS">Onions</string>
+    <string name="SAUSAGE">Sausage</string>
+    <string name="BACON">Bacon</string>
+    <string name="EXTRACHEESE">Extra Cheese</string>
+    <string name="OLIVES">Olives</string>
+    <string name="PEPPERS">Pepper</string>
+    <string name="PINEAPPLE">Pineapple</string>
+    <string name="CHICKEN">Chicken</string>
+    <string name="JALAPENOS">Jalapenos</string>
+    <string name="choose_toppings">Choose Your Toppings:</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="cancel">Cancel Order</string>
+    <string name="export">Export</string>
+    <string name="total">Total (including tax)</string>
+    <string name="remove">Remove Selected</string>
+    <string-array name="pizza_sizes">
+        <item>Large</item>
+        <item>Medium</item>
+        <item>Small</item>
+    </string-array>
+</resources>
