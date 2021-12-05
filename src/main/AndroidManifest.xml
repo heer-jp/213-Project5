@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.project5">
+    package="com.example.rupizzeria">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label= "@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Project5">
+        android:theme="@style/Theme.RUPizzeria">
+        <activity
+            android:name=".StoreOrdersActivity"
+            android:label="@string/store_orders"
+            android:exported="false" />
+        <activity
+            android:name=".CurrentOrderActivity"
+            android:label="@string/current_order"
+            android:exported="false" />
+        <activity
+            android:name=".CustomizationActivity"
+            android:label="@string/customize_pizza"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
