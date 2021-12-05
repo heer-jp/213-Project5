@@ -15,6 +15,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * Class that handles user's pizza selections in creating a pizza order.
+ * @author Sai Maduri, Heer Patel
+ */
 public class CustomizationActivity extends AppCompatActivity {
 
     private ImageView pizzaImage;
@@ -45,6 +49,11 @@ public class CustomizationActivity extends AppCompatActivity {
     private double MEDIUM_SCALE = .8;
     private double LARGE_SCALE = 1;
 
+    /**
+     * Open activity_customization.
+     * Allow user to pick pizza details and display price.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -175,15 +184,23 @@ public class CustomizationActivity extends AppCompatActivity {
         displaySubtotal();
     }
 
+    /**
+     * Add pizza with user chosen details to order.
+     */
     public void addToOrder() {
         try {
             MainActivity.addPizzaToOrder(tmpPizza);
         } catch (Exception e) {
-            //put error toast here
+            displayToast("An error occurred when adding your pizza. Please try again.");
         }
         finish();
     }
 
+    /**
+     * Add toppings to pizza if checkbox is clicked.
+     * Controls toppings constrains and warning outputs.
+     * @param view
+     */
     public void onCheckBoxClicked(View view) {
         CheckBox cb = (CheckBox) view;
         boolean checked = cb.isChecked();
@@ -206,6 +223,9 @@ public class CustomizationActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Set default toppings depending on pizza style chosen.
+     */
     public void setDefaultToppings() {
         if (pizzaType.equals(Pizza.DELUXE)) {
             chickenCB.setChecked(true);
@@ -227,26 +247,47 @@ public class CustomizationActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Load toppings on pizza.
+     */
     public void loadToppings() {
         int loadToppingsStartIndex = 3;
         for (int i = loadToppingsStartIndex; i < userData.length; i++)
             toppings.add(getTopping(userData[i].toUpperCase()));
     }
 
+    /**
+     * Get toppings chosen by user.
+     * @param topping from checkboxes
+     * @return toppings in uppercase
+     */
     public static Topping getTopping(String topping) {
         return Topping.valueOf(topping.toUpperCase());
     }
 
+    /**
+     * Get pizza size.
+     * @param size from spinner.
+     * @return size in uppercase.
+     */
     public static Size getSize(String size) {
         return Size.valueOf(size.toUpperCase());
     }
 
+    /**
+     * Display subtotals based on pizza size and toppings.
+     */
     public void displaySubtotal() {
+        System.out.println(toppings);
         tmpPizza = PizzaMaker.createPizza(pizzaType, getSize(sizeSpinner.getSelectedItem().toString()), toppings);
         String price = String.format("%,.2f", tmpPizza.price());
         subtotalTxt.setText("Subtotal: $" + price);
     }
 
+    /**
+     * Display warning messages
+     * @param s messages.
+     */
     private void displayToast(String s) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }

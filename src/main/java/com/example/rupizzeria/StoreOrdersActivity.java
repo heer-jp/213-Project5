@@ -11,11 +11,21 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+/**
+ * Class that handles output for all pizza order(s).
+ * Allows all pizza order(s) to be viewed and or cancelled.
+ * @author Sai Maduri, Heer Patel
+ */
 public class StoreOrdersActivity extends AppCompatActivity {
 
     private ListView storeOrdersLV;
     private Button cancelBtn;
 
+    /**
+     * Open activity_store_orders.
+     * Dispaly all store orders with ability to remove orders.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,16 +36,15 @@ public class StoreOrdersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(StoreOrdersActivity.this);
-                alert.setMessage("Remove pizza").setTitle("Remove pizza");
-                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                alert.setMessage(R.string.remove_pizza_text).setTitle(R.string.remove_pizza_title);
+                alert.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         removeOrder(position);
                     }
                 });
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                alert.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-//                        displayToast(getString(R.string.itemno));
-                        System.out.println("did not remove pizza");
+
                     }
                 });
                 AlertDialog dialog = alert.create();
@@ -54,6 +63,10 @@ public class StoreOrdersActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Remove order from list.
+     * @param position of order.
+     */
     private void removeOrder(int position) {
         MainActivity.storeOrders.removeOrder(MainActivity.storeOrders.getOrder(position));
         if (MainActivity.storeOrders.getOrders().size() > 0) {
@@ -63,6 +76,9 @@ public class StoreOrdersActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Fill display with pizza order list.
+     */
     public void fillListView() {
         ArrayAdapter<Order> list = new ArrayAdapter<Order>(this, android.R.layout.simple_list_item_1, MainActivity.storeOrders.getOrders());
         storeOrdersLV.setAdapter(list);

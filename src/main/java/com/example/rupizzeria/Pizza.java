@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Abstract class that defines pizza characteristics.
  * Characteristics include pizza size, toppings, and price.
  * @author Sai Maduri, Heer Patel
- *
  */
 public abstract class Pizza {
 

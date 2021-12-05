@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Subclass of pizza that creates an instance of deluxe pizza.
  * Includes size, toppings, and price variables. 
  * @author Sai Maduri, Heer Patel
- *
  */
 public class Deluxe extends Pizza {
 
@@ -38,7 +37,7 @@ public class Deluxe extends Pizza {
         }
         int numToppings = toppings.size();
         if (numToppings > Pizza.DELUXE_TOPPINGS_COUNT) {
-            price += Math.min(Pizza.TOPPING_PRICE * (double) (Pizza.MAX_TOPPINGS_COUNT-Pizza.DELUXE_TOPPINGS_COUNT), Pizza.TOPPING_PRICE * (double) (numToppings - Pizza.PEPPERONI_TOPPINGS_COUNT));
+            price += Math.min(Pizza.TOPPING_PRICE * (double) (Pizza.MAX_TOPPINGS_COUNT-Pizza.DELUXE_TOPPINGS_COUNT), Pizza.TOPPING_PRICE * (double) (numToppings - Pizza.DELUXE_TOPPINGS_COUNT));
         }
         return Double.parseDouble(String.format("%,.2f", price));
     }

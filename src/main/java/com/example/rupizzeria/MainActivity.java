@@ -11,6 +11,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Class that handles input, output, and button events that open corresponding activities.
+ * @author Sai Maduri, Heer Patel
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static EditText phoneNumberTxt;
@@ -22,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     static Order order;
     static StoreOrders storeOrders = new StoreOrders();
 
+    /**
+     * Open activty_main upon clicking app icon.
+     * Calls corresponding method for each button click in main menu.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sends user information to CustomizationActivty class to open
+     * activity_customization with deluxe settings.
+     */
     public void openCustomizationActivityDeluxe() {
         if (validateOrder()) {
             if (order == null) {
@@ -83,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sends user information to CustomizationActivty class to open
+     * activity_customization with hawaiin settings.
+     */
     public void openCustomizationActivityHawaiian() {
         if (validateOrder()) {
             if (order == null) {
@@ -95,6 +112,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sends user information to CustomizationActivty class to open
+     * activity_customization with pepperoni settings.
+     */
     public void openCustomizationActivityPepperoni() {
         if (validateOrder()) {
             if (order == null) {
@@ -107,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Send user information to CurrentOrderActivity class to open
+     * activity_current_order.
+     */
     public void openCurrentOrderActivity() {
         if (order != null) {
             Intent intent = new Intent(MainActivity.this, CurrentOrderActivity.class);
@@ -116,15 +141,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Send user information to StoreOrdersActivity class to open
+     * activity_store_orders.
+     */
     public void openStoreOrdersActivity() {
         Intent intent = new Intent(MainActivity.this, StoreOrdersActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Add pizza to pizza order.
+     * @param pizza details chosen by user
+     */
     public static void addPizzaToOrder(Pizza pizza) {
         order.addPizza(pizza);
     }
 
+    /**
+     * Validate user phone number.
+     * @return false if invalid, true if valid.
+     */
     private boolean validateOrder() {
         String phoneNumber = phoneNumberTxt.getText().toString().trim();
         if (phoneNumber.length() == 0) {
@@ -134,13 +171,6 @@ public class MainActivity extends AppCompatActivity {
             if (phoneNumber.length() != 10) {
                 displayToast("Phone numbers must be 10 digits.");
                 return false;
-            } else {
-//                for (Order order : storeOrders.getOrders()) {
-//                    if (order.getPhoneNumber().equals(phoneNumber)) {
-//                        displayToast("An order has already been placed with that phone number.");
-//                        return false;
-//                    }
-//                }
             }
         } else {
             displayToast("Please use only digits for your phone number.");
@@ -149,17 +179,27 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Add pizza order to store order.
+     */
     public static void addToStoreOrders() {
         storeOrders.addOrder(order);
         clearOrder();
     }
 
+    /**
+     * Clear order list.
+     */
     public static void clearOrder() {
         phoneNumberTxt.setText("");
         order = null;
         phoneNumberTxt.setEnabled(true);
     }
 
+    /**
+     * Display warning messages.
+     * @param s warning messages.
+     */
     private void displayToast(String s) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * Keeps track of pizza instances created by a specific phone number given by the user within an array list.
  * @author Sai Maduri, Heer Patel
- *
  */
 public class Order {
     private String phoneNumber;

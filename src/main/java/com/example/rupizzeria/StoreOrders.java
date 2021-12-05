@@ -9,7 +9,6 @@ import java.util.ArrayList;
  * Keeps list of orders placed by the user.
  * Allows user to export list into a local file. 
  * @author Sai Maduri, Heer Patel
- *
  */
 public class StoreOrders {
 
@@ -55,20 +54,4 @@ public class StoreOrders {
         return orders.get(index);
     }
 
-    /**
-     * Export the pizza orders to a chosen local file.
-     * @param file to export the orders.
-     * @return true if export was completed successfully, otherwise return false. 
-     */
-    public boolean export(File file) {
-        try {
-            FileWriter output = new FileWriter(file);
-            for (Order order : orders)
-                output.write(order.toString() + "\n");
-            output.close();
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }
 }

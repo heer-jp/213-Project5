@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Subclass of pizza that creates an instance of hawaiian pizza.
  * Includes size, toppings, and price variables. 
  * @author Sai Maduri, Heer Patel
- *
  */
 public class Hawaiian extends Pizza {
 
@@ -38,7 +37,7 @@ public class Hawaiian extends Pizza {
         }
         int numToppings = toppings.size();
         if (numToppings > Pizza.HAWAIIAN_TOPPINGS_COUNT) {
-            price += Math.min(Pizza.TOPPING_PRICE * (double) (Pizza.MAX_TOPPINGS_COUNT-Pizza.HAWAIIAN_TOPPINGS_COUNT), Pizza.TOPPING_PRICE * (double) (numToppings - Pizza.PEPPERONI_TOPPINGS_COUNT));
+            price += Math.min(Pizza.TOPPING_PRICE * (double) (Pizza.MAX_TOPPINGS_COUNT-Pizza.HAWAIIAN_TOPPINGS_COUNT), Pizza.TOPPING_PRICE * (double) (numToppings - Pizza.HAWAIIAN_TOPPINGS_COUNT));
         }
         return Double.parseDouble(String.format("%,.2f", price));
     }

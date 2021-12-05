@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * Creates an instance of pizza based on user's pizza choices.
  * @author Sai Maduri, Heer Patel
- *
  */
 public class PizzaMaker {
 

@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Subclass of pizza that creates an instance of pepperoni pizza.
  * Includes size, toppings, and price variables. 
  * @author Sai Maduri, Heer Patel
- *
  */
 public class Pepperoni extends Pizza {
 
